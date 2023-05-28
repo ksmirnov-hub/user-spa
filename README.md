@@ -1,5 +1,6 @@
 # Запуск приложения
 npm install
+#
 npm start
 
 
@@ -11,6 +12,7 @@ mike001
 andrew007
 123456
 
-# Файл с пользователями src/data/users.json
+# Файл с пользователями 
+src/data/users.json
 
 
