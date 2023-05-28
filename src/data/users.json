@@ -1,0 +1,13 @@
+[
+	{
+		"id": 1,
+		"login": "andrew007",
+		"name": "Андрей",
+		"password": "7c4a8d09ca3762af61e59520943dc26494f8941b"
+	}, {
+		"id": 2,
+		"login": "mike001",
+		"name": "Михаил",
+		"password": "7c4a8d09ca3762af61e59520943dc26494f8941b"
+	}
+]
