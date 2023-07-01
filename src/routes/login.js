@@ -1,20 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { connect } from "react-redux";
 import { Input, Form, Button } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, PlusOutlined } from '@ant-design/icons';
 import { checkCredentialsRequest } from "../redux/actions/login";
 import { clearError } from "../redux/actions/auth";
+import MyInput from "../components/MyInput"
+import WithoutRef from "../components/WithoutRef"
+function useResize() {
+ const [width, setWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = (event) => {
+	
+      setWidth(event.target.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+	console.log('width', width)
+  return width;
+}
 function Registration({
 	isAuth = false,
 	authError = null,
 	checkCredentials,
 	clearAuthError
 }) {
+	const width = useResize();
 	const onFinish = (values) => {
 		checkCredentials(values);
 	};
-
+	console.log('width', width);
 	const onFinishFailed = (values) => {
 		console.log('Имя пользователя или пароль введены не верно');
 	};
@@ -24,6 +42,12 @@ function Registration({
 			clearAuthError();
 		}
 	}
+
+	const ref = useRef(null);
+
+	const  handleClick = () => {
+		ref.current.focus();
+	  }
 
 	return (
 		<div className="w-[600px] h-full mx-[30%]">
